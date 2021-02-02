@@ -1,6 +1,6 @@
 //Maya ASCII 2020 scene
 //Name: Hammer.ma
-//Last modified: Mon, Feb 01, 2021 12:49:43 PM
+//Last modified: Tue, Feb 02, 2021 11:31:07 AM
 //Codeset: 1252
 requires maya "2020";
 currentUnit -l centimeter -a degree -t film;
@@ -9,17 +9,17 @@ fileInfo "product" "Maya 2020";
 fileInfo "version" "2020";
 fileInfo "cutIdentifier" "202011110415-b1e20b88e2";
 fileInfo "osv" "Microsoft Windows 10 Technical Preview  (Build 18363)\n";
-fileInfo "UUID" "97D6C194-4E68-591D-EBE5-678B154AD501";
+fileInfo "UUID" "9CF46C08-45C2-78BC-F018-5CBC0B5DBCAD";
 createNode transform -s -n "persp";
 	rename -uid "6A8D8962-4EA8-C6F8-B8CB-6FB63794AB14";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 28 21 28 ;
-	setAttr ".r" -type "double3" -27.938352729602379 44.999999999999972 -5.172681101354183e-14 ;
+	setAttr ".t" -type "double3" 2.7566117720053107 4.404719513385432 10.582795583806249 ;
+	setAttr ".r" -type "double3" -21.938352729602641 14.600000000000138 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "1CDDEBF0-4B31-860A-8074-44971BA4296D";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 44.82186966202994;
+	setAttr ".coi" 11.789657536238469;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -85,19 +85,19 @@ createNode mesh -n "pCubeShape1" -p "pCube1";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "001B2372-467B-AEF3-5019-46AE320A0BE0";
+	rename -uid "95BAC188-408C-729B-5E90-8AAE0D4DB03E";
 	setAttr -s 2 ".lnk";
 	setAttr -s 2 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "965D44A8-4968-D0BD-8E4E-968245B1F42E";
+	rename -uid "E62CCBBA-4165-BA55-468E-3388567682E5";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "7F04B51E-450B-03D7-372A-1FB2EBF6E4D1";
+	rename -uid "F3D7F59B-4B98-D1FA-3778-56AA8C481BB0";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "34616820-4484-DD38-016E-36906A626D1D";
+	rename -uid "303471E2-456E-6981-4A8D-AE80397DE3E2";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "AE27D9FE-46A8-142F-56EF-6E8A97D8F652";
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "0B4BBAF9-44D0-BBAF-F715-89963A669739";
+	rename -uid "4059CAFF-42EF-E1C4-4794-E1B50961658B";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "5180BEF2-4CA1-5077-3594-10ACD555405C";
 	setAttr ".g" yes;
@@ -180,8 +180,6 @@ select -ne :defaultResolution;
 select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
-select -ne :ikSystem;
-	setAttr -s 4 ".sol";
 connectAttr "polyCube1.out" "pCubeShape1.i";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
